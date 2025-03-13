@@ -156,15 +156,15 @@ Mặc dù dự án đã hoàn thành nhưng vẫn chưa thực sự tối ưu. S
 
   + **Áp dụng**: AccountManager hoặc DatabaseManager để đảm bảo chỉ có một instance trong hệ thống.
 
-- Factory Pattern (Tạo đối tượng linh hoạt)
+- **Factory Pattern** (Tạo đối tượng linh hoạt)
 
   + **Áp dụng**: EmployeeFactory, ServiceFactory để tạo nhân viên hoặc dịch vụ dựa trên yêu cầu.
 
-- Observer Pattern (Cập nhật UI khi có thay đổi dữ liệu)
+- **Observer Pattern** (Cập nhật UI khi có thay đổi dữ liệu)
 
   + **Áp dụng**: Khi có thay đổi trong danh sách nhân viên, phòng, hoặc dịch vụ, UI sẽ tự động cập nhật.
 
-- MVP (Model-View-Presenter)
+- **MVP (Model-View-Presenter)**
 
   + **Áp dụng**: Tách phần xử lý logic và giao diện UI, giúp dễ bảo trì và mở rộng. 
 
