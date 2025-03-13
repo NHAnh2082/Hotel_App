@@ -128,7 +128,9 @@ make clean
 4. **Sử Dụng**
 
 B1. Đăng nhập bằng tài khoản quản lý (`admin` mặc định).
+
 B2. Chọn chức năng từ menu chính để quản lý nhân viên, phòng, dịch vụ.
+
 B3. Khi hoàn thành, chọn "Lưu trữ dữ liệu" để lưu vào file CSV.
 
 📌 **Lưu ý:** Nếu không lưu, dữ liệu có thể bị mất khi thoát chương trình.
