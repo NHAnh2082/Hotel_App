@@ -84,34 +84,87 @@ HOTEL_APP/
 ### **9. `main.cpp`**
 - Chương trình chính, xử lý vòng lặp đăng nhập và gọi `Manager`.
 
-## 🚀 Hướng Dẫn Cài Đặt & Sử Dụng
-### **1. Cài Đặt Công Cụ**
-- C++ Compiler (`g++` hoặc `MSVC`)
-- `make` (nếu sử dụng Makefile)
+## 🔧 Hướng Dẫn Cài Đặt & Sử Dụng
+### 🖥️ **Cài Đặt Công Cụ**
 
-### **2. Biên Dịch Dự Án**
-```sh
+✅ **GNU Make** (Công cụ tự động hóa quá trình biên dịch)
+
+✅ **Trình biên dịch C++** (G++, Clang hoặc MSVC, hỗ trợ C++11 trở lên)
+
+### 🚀 **Các Lệnh Sử Dụng Makefile**
+
+1. 📥 **Biên dịch chương trình**
+
+Để biên dịch toàn bộ chương trình, sử dụng lệnh sau:
+
+```bash
 make
 ```
-Nếu không dùng `makefile`, có thể biên dịch thủ công:
-```sh
-g++ -o hotel_app Src/*.cpp -IInc
+
+Lệnh này sẽ:
+
+- Tạo thư mục Build/ nếu chưa tồn tại.
+
+- Biên dịch toàn bộ mã nguồn trong thư mục Source/.
+
+- Tạo file thực thi tại Build/main.
+
+2. 🏃 Chạy chương trình
+
+Sau khi biên dịch thành công, chạy chương trình bằng cách:
+
+```bash
+make run
 ```
 
-### **3. Chạy Chương Trình**
-```sh
-./hotel_app
+3. 🧹 Xóa các tệp biên dịch cũ (Clean Build)
+
+Để xóa toàn bộ các tệp tạm trong thư mục **Build/** và biên dịch lại từ đầu:
+
+```bash
+make clean
 ```
 
-### **4. Sử Dụng**
-1. Đăng nhập bằng tài khoản quản lý (`admin` mặc định).
-2. Chọn chức năng từ menu chính để quản lý nhân viên, phòng, dịch vụ.
-3. Khi hoàn thành, chọn "Lưu trữ dữ liệu" để lưu vào file CSV.
+4. **Sử Dụng**
+
+B1. Đăng nhập bằng tài khoản quản lý (`admin` mặc định).
+B2. Chọn chức năng từ menu chính để quản lý nhân viên, phòng, dịch vụ.
+B3. Khi hoàn thành, chọn "Lưu trữ dữ liệu" để lưu vào file CSV.
 
 📌 **Lưu ý:** Nếu không lưu, dữ liệu có thể bị mất khi thoát chương trình.
 
-## 📢 Đóng Góp
-- Nếu bạn muốn đóng góp, vui lòng tạo **pull request** hoặc mở **issue**.
+## 📢 Đề xuất cải tiến
+
+Mặc dù dự án đã hoàn thành nhưng vẫn chưa thực sự tối ưu. Sau đây là đề xuất để có thể cải tiến chương trình:
+
+1. **Sử dụng Smart Pointer**
+
+- **Lợi ích**: Tránh rò rỉ bộ nhớ, tự động giải phóng tài nguyên.
+- **Ứng dụng**: Thay thế các con trỏ thô trong Employee, Room, Guess bằng ``` std::unique_ptr ``` hoặc ``` std::shared_ptr ```.
+
+2. **Áp dụng SOLID**
+
+- **Single Responsibility Principle**: Tách File_Handling thành nhiều class nhỏ để dễ bảo trì.
+- **Open/Closed Principle**: Cho phép mở rộng menu mà không cần thay đổi code cũ.
+- **Dependency Inversion**: Tạo interface IStorage để xử lý lưu trữ file linh hoạt hơn.
+
+3. **Design Patterns**
+
+- **Singleton** (Quản lý tài khoản, database)
+
+  + **Áp dụng**: AccountManager hoặc DatabaseManager để đảm bảo chỉ có một instance trong hệ thống.
+
+- Factory Pattern (Tạo đối tượng linh hoạt)
+
+  + **Áp dụng**: EmployeeFactory, ServiceFactory để tạo nhân viên hoặc dịch vụ dựa trên yêu cầu.
+
+- Observer Pattern (Cập nhật UI khi có thay đổi dữ liệu)
+
+  + **Áp dụng**: Khi có thay đổi trong danh sách nhân viên, phòng, hoặc dịch vụ, UI sẽ tự động cập nhật.
+
+- MVP (Model-View-Presenter)
+
+  + **Áp dụng**: Tách phần xử lý logic và giao diện UI, giúp dễ bảo trì và mở rộng. 
 
 ## 📜 Giấy Phép
 Dự án này được phát hành theo **MIT License**. Bạn có thể sử dụng tự do với điều kiện giữ lại phần bản quyền của tác giả.
